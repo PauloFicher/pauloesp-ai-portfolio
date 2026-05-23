@@ -9,15 +9,13 @@ export default function ContactSection() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-
-      if (!res.ok) throw new Error('Failed to send');
+      if (!res.ok) throw new Error('Error');
       setStatus('sent');
       setForm({ name: '', email: '', company: '', message: '' });
     } catch {
@@ -27,22 +25,21 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Hablemos
+    <section id="contacto" className="max-w-5xl mx-auto px-6 py-20 border-t border-wire">
+      <div className="max-w-xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-ink tracking-[-0.02em] mb-3">
+            Contacto
           </h2>
-          <p className="text-gray-400">
-            Si estas en el Grupo Azeta o cualquier empresa interesada en
-            automatizacion con IA, deja tu mensaje.
+          <p className="text-ink-secondary leading-relaxed">
+            Interesado en automatizacion con IA para tu empresa? Dejame tu mensaje.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="name" className="block text-sm text-gray-400 mb-1.5">
+              <label htmlFor="name" className="block text-[13px] font-medium text-ink-secondary mb-1.5">
                 Nombre
               </label>
               <input
@@ -51,12 +48,12 @@ export default function ContactSection() {
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-2.5 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm placeholder-gray-600 focus:outline-none focus:border-azeta-accent/40 transition-colors"
+                className="w-full px-4 py-2.5 rounded-xl border border-wire bg-surface text-ink text-sm placeholder:text-ink-tertiary focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all"
                 placeholder="Tu nombre"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm text-gray-400 mb-1.5">
+              <label htmlFor="email" className="block text-[13px] font-medium text-ink-secondary mb-1.5">
                 Email
               </label>
               <input
@@ -65,14 +62,14 @@ export default function ContactSection() {
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-2.5 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm placeholder-gray-600 focus:outline-none focus:border-azeta-accent/40 transition-colors"
+                className="w-full px-4 py-2.5 rounded-xl border border-wire bg-surface text-ink text-sm placeholder:text-ink-tertiary focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all"
                 placeholder="tu@email.com"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="company" className="block text-sm text-gray-400 mb-1.5">
+            <label htmlFor="company" className="block text-[13px] font-medium text-ink-secondary mb-1.5">
               Empresa (opcional)
             </label>
             <input
@@ -80,13 +77,13 @@ export default function ContactSection() {
               type="text"
               value={form.company}
               onChange={(e) => setForm({ ...form, company: e.target.value })}
-              className="w-full px-4 py-2.5 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm placeholder-gray-600 focus:outline-none focus:border-azeta-accent/40 transition-colors"
+              className="w-full px-4 py-2.5 rounded-xl border border-wire bg-surface text-ink text-sm placeholder:text-ink-tertiary focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all"
               placeholder="Nombre de tu empresa"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm text-gray-400 mb-1.5">
+            <label htmlFor="message" className="block text-[13px] font-medium text-ink-secondary mb-1.5">
               Mensaje
             </label>
             <textarea
@@ -95,19 +92,19 @@ export default function ContactSection() {
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-2.5 bg-white/[0.03] border border-white/10 rounded-lg text-white text-sm placeholder-gray-600 focus:outline-none focus:border-azeta-accent/40 transition-colors resize-none"
-              placeholder="Contame sobre tu proyecto o rol..."
+              className="w-full px-4 py-2.5 rounded-xl border border-wire bg-surface text-ink text-sm placeholder:text-ink-tertiary focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 transition-all resize-none"
+              placeholder="Contame sobre tu proyecto o interes..."
             />
           </div>
 
           <button
             type="submit"
             disabled={status === 'sending' || status === 'sent'}
-            className="w-full py-3 bg-azeta-accent text-azeta-primary rounded-lg font-semibold text-sm hover:bg-azeta-accent/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="btn-primary w-full justify-center disabled:opacity-50"
           >
             {status === 'sending' && 'Enviando...'}
             {status === 'sent' && 'Mensaje enviado'}
-            {status === 'error' && 'Error - intenta de nuevo'}
+            {status === 'error' && 'Error. Intenta de nuevo'}
             {status === 'idle' && 'Enviar mensaje'}
           </button>
         </form>
