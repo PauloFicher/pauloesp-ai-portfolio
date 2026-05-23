@@ -24,7 +24,7 @@ export const projects: Project[] = [
     icon: 'inventory',
     links: {
       github: 'https://github.com/PauloFicher/biggie-inventory-agent',
-      demo: '',
+      demo: 'https://biggie-inventory-agent.vercel.app',
     },
     category: 'retail',
     azetaCompany: 'Biggie',
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     icon: 'feedback',
     links: {
       github: 'https://github.com/PauloFicher/azeta-feedback-analyzer',
-      demo: '',
+      demo: 'https://azeta-feedback-analyzer.vercel.app',
     },
     category: 'telecom',
     azetaCompany: 'Azeta (Multi-empresa)',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     icon: 'ocr',
     links: {
       github: 'https://github.com/PauloFicher/onboarding-ocr',
-      demo: '',
+      demo: 'https://github.com/PauloFicher/onboarding-ocr',
     },
     category: 'finanzas',
     azetaCompany: 'Zeta Banco',
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     icon: 'contract',
     links: {
       github: 'https://github.com/PauloFicher/contract-intelligence',
-      demo: '',
+      demo: 'https://contract-intelligence.vercel.app',
     },
     category: 'inmobiliario',
     azetaCompany: 'Azeta Inmobiliaria',
