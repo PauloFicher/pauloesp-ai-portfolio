@@ -59,7 +59,7 @@ export const projects: Project[] = [
     ],
     icon: 'feedback',
     links: {
-      github: 'https://github.com/PauloFicher/feedback-analyzer',
+      github: 'https://github.com/PauloFicher/azeta-feedback-analyzer',
       demo: '',
     },
     category: 'telecom',
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     ],
     icon: 'contract',
     links: {
-      github: 'https://github.com/PauloFicher/contract-intel',
+      github: 'https://github.com/PauloFicher/contract-intelligence',
       demo: '',
     },
     category: 'inmobiliario',
